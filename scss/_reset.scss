@@ -1,0 +1,43 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(26, 40, 48);
+    font-family: "El Messiri", sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+
+.container {
+    max-width: 1290px;
+    margin: 0 auto;
+    padding: 0 7px;
+    // border: 1px solid black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+input {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    object-fit: cover;
+}

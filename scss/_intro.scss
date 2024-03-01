@@ -1,0 +1,45 @@
+
+#intro-section {
+    .intro {
+        color: rgb(255, 255, 255);
+        text-align: center;
+
+        &-title {
+            position: relative;
+            margin: auto;
+            display: inline-block;
+            padding: 136px 0 40px 0; 
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 140%;
+            &::before {
+                content: "";
+                background: url(../images/src/whiteleft.svg) no-repeat;
+                width: 28px;
+                height: 14px;
+                position: absolute;
+                bottom: 50px;
+                left: -66px;
+            }
+            &::after {
+                content: "";
+                background: url(../images/src/whiteright.svg) no-repeat;
+                width: 28px;
+                height: 14px;
+                position: absolute;
+                bottom: 50px;
+                right: -66px;
+            }
+        }
+        
+        &-text {
+            margin: auto;
+            width: 587px;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 140%;
+            letter-spacing: 0%;
+        }
+    }
+}
+

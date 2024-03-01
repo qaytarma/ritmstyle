@@ -1,0 +1,47 @@
+@mixin btn($bgclr, $clr) {
+    width: 160px;
+    height: 40px;
+    background: $bgclr;
+    border-radius: 3px;
+    color: $clr;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 0%;
+}
+
+#header-section {
+
+    margin: 30px 0 50px 0;
+    
+    .header {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-nav__list {
+            display: flex;
+            gap: 0 50px;
+            > li {
+               > a {
+                transition: .8s;
+                &:hover {
+                    color: rgb(111, 99, 227);
+                    transition: .8s;
+                }
+               } 
+            }
+        }
+      &-btn {
+        > input {
+            transition: .3s;
+            @include btn(rgb(1, 138, 190), white);
+            &:hover {
+                transform: scale(1.1);
+                transition: .3s;
+            }
+        }
+      }
+    }
+    
+}

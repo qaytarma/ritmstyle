@@ -1,0 +1,326 @@
+
+@mixin title($ftz, $fweight) {
+    font-size: $ftz;
+    color: rgb(255, 255, 255);
+    font-weight: $fweight;
+    line-height: 140%;
+}
+
+#ritmstyle-section {
+    
+    margin-bottom: 150px;
+
+    .seans {
+
+        &-title {
+            width: 482px;
+            text-align: center;
+            margin: auto;
+            &__txt {
+                margin: 150px 0 100px 0;
+                position: relative;
+                @include title(42px, 700);
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 35%;
+                    left: 0;
+                    background: url(../images/src/blueleft.svg) no-repeat;
+                    width: 28px;
+                    height: 14px;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 35%;
+                    right: 0;
+                    background: url(../images/src/blueright.svg) no-repeat;
+                    width: 28px;
+                    height: 14px;
+                }
+            }
+        }
+
+        &-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 32.1%);
+            grid-gap: 24px;
+            &__block {
+                position: relative;
+                &:first-child {
+                    grid-row: 1 / 3;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 7px;
+                    background-color: transparent;
+                    border-radius: 0 0 10px 10px;
+                    transition: .5s;
+                }
+                &:hover::after {
+                    transition: .5s;
+                    background-color: #007bff;
+                }
+                >img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                }
+                >span {
+                    position: absolute;
+                    bottom: 30px;
+                    left: 40px;
+                    display: block;
+                    width: 336px;
+                    color: rgb(255, 255, 255);
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 140%;
+                }
+                &:first-child span {
+                    bottom: 50px;
+                }
+            }
+        }
+
+    }
+    
+    .reviews {
+
+        &-title {
+            width: 300px;
+        }
+
+        &-wrapper {
+
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__block {
+                width: 636px;
+                height: 350px;
+                border-radius: 10px; 
+                background: rgb(1, 138, 190);
+                color: rgb(255, 255, 255);
+                padding: 50px 0 0 60px;
+                >h4 {
+                    @include title(20px, 700);
+                    margin-bottom: 20px;
+                }
+                >p {
+                    @include title(14px, 300);
+                }
+                &:nth-child(odd) {
+                    position: absolute;
+                    opacity: .3;
+                    width: 500px;
+                    height: 276px;
+                    &:first-child {
+                        left: -230px;
+                    }
+                    &:last-child {
+                        right: -230px;
+                    }
+                    >h4 {
+                        @include title(16px, 700);
+                    }
+                    >p {
+                        width: 410px;
+                        @include title(10px, 300);
+                    }
+                }
+
+            }
+        }
+
+        &-toogle {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            grid-gap: 10px;
+            >span {
+                width: 16px;
+                height: 16px;
+                background: rgb(111, 126, 130);
+                opacity: .3;
+                border-radius: 3px;
+                cursor: pointer;
+                &.checked,
+                &:active {
+                    background-color: rgb(255, 255, 255);
+                    opacity: 1;
+                }
+            }
+        }
+        
+    }
+
+    .about {
+
+        &-title {
+            width: 389px;
+        }
+
+        &-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            grid-gap: 100px 0;
+            &__block {
+                display: flex;
+                flex-direction: row;
+                grid-gap: 0 84px;
+                &:nth-child(2) {
+                    flex-direction: row-reverse;
+                }
+            }
+            .block-txt {
+                align-self: center;
+                >h2 {
+                    @include title(24px, 700);
+                    margin-bottom: 30px;
+                }
+                >p {
+                    width: 466px;
+                    @include title(16px, 300);
+                }
+            }
+            .block-img {
+                >img {
+                    display: inline-block;
+                    width: 526px;
+                    height: 400px;
+                }
+            }
+        }
+
+    }
+    
+    .price {
+
+        &-title {
+            width: 518px;
+        }
+
+        &-wrapper {
+
+            display: flex;
+            justify-content: space-around;
+            grid-gap: 134px;
+            align-items: center;
+
+            &__txt {
+                >ul {
+                    >li {
+                        color: rgb(255, 255, 255);
+                        $wordList: "1000р.", "5500р.", "6000р.", "13500р.", "11500р.";
+                        width: 268px;
+                        @include title(18px, 400);
+                        margin: 0 0 31px 45px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                        position: relative;
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 6px;
+                            left: -38px;
+                            width: 18px;
+                            height: 9px;
+                            background: url(../images/src/listblue.svg) no-repeat;
+                        }
+                        @for $i from 1 through length($wordList) {
+                            &:nth-child(#{$i})::after {
+                                content: nth($wordList, $i);
+                                position: absolute;
+                                right: -60px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            &__img {
+                >img {
+                    display: inline-block;
+                    width: 526px;
+                    height: 396px;
+                }
+                span {
+                    display: block;
+                    margin-top: 30px;
+                    text-align: center;
+                    color: rgb(255, 255, 255);
+                    @include title(21px, 700);
+                }
+            }
+        }
+
+    }
+    
+}
+
+@media screen and (max-width: 960px) {
+    #ritmstyle-section {
+        .seans {
+            &-wrapper {
+                grid-template-columns: repeat(2, 47%);
+                grid-template-rows: repeat(2, auto);
+                grid-auto-rows: 275px;
+                justify-content: center;
+                &__block {
+                    &:first-child {
+                        grid-row: 1 / 2;
+                    }
+                    &:last-child {
+                        height: 100%;
+                        grid-column: 1 / 3;
+                        grid-row: 3 / 4;
+                    }
+                    >span {
+                        width: 250px;
+                        font-size: 20px;
+                    }
+                    &:first-child span {
+                        bottom: 30px;
+                    }
+                }
+            }
+        }
+        .about {
+            &-wrapper {
+                flex-direction: column;
+                grid-gap: 0;
+                &:last-child .about-wrapper__block {
+                    flex-direction: column-reverse;
+                }
+                &__block {
+                    .block-txt {
+                        margin: 35px 0 0 0;
+                        >h2 {
+                            text-align: center;
+                        }
+                        >p {
+                            width: 850px;
+                            margin: auto;
+                        }
+                    }
+                    .block-img {
+                        >img {
+                            width: 850px;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}
